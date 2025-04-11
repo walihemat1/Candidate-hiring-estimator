@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Candidate Hiring Estimator</title>
+  </head>
+  <body>
+    <h1>Candidate Hiring Estimator</h1>
+    <label for="input">Enter the number of candidates: </label>
+    <input type="number" name="" id="input" />
+
+    <button onclick="estimateHiring()">Estimate Hires</button>
+
+    <p>
+      Result:
+      <span id="span"></span>
+      <span id="span2"></span>
+    </p>
+
+    <script>
+      function estimateHiring() {
+        let input = document.getElementById("input").value;
+        let numCandidates = parseInt(input);
+
+        if (isNaN(numCandidates) || numCandidates <= 0) {
+          alert("Please enter a valid positive number.");
+          return;
+        }
+
+        // Assuming 30% of candidates are hired
+        let hiringRate = 0.3;
+        let hires = Math.round(numCandidates * hiringRate);
+        document.getElementById(
+          "span"
+        ).innerHTML = `Approximately <strong>${hires}</strong> candidates`;
+        document.getElementById(
+          "span2"
+        ).innerHTML = ` out of <strong>${numCandidates}</strong> will be hired.`;
+      }
+    </script>
+  </body>
+</html>
