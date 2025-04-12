@@ -26,9 +26,12 @@
           return;
         }
 
-        // Assuming 30% of candidates are hired
-        let hiringRate = 0.3;
-        let hires = Math.round(numCandidates * hiringRate);
+        let hires = 0;
+        for (let i = 1; i <= numCandidates; i++) {
+          hires += 1 / i;
+        }
+
+        hires = hires.toFixed(2); // rounds to 2 decimal places
         document.getElementById(
           "span"
         ).innerHTML = `Approximately <strong>${hires}</strong> candidates`;
